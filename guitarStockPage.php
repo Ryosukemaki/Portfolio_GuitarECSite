@@ -71,8 +71,8 @@
                    <a href="" class="btn btn-warning">Warning</a>
                    </td>
                    <td>
-                   <a href="stock.php?edit=<?php echo $row["id"]; ?>" class="btn btn-info">EDIT</a>
-                   <a href="stock.php?delete=<?php echo $row["id"]; ?>" class="btn btn-danger">DELETE</a>     
+                   <a href="guitarStockPage.php?edit=<?php echo $row["id"]; ?>" class="btn btn-info">EDIT</a>
+                   <a href="guitarStockPage.php?delete=<?php echo $row["id"]; ?>" class="btn btn-danger">DELETE</a>     
                    </td>
                 </tr>
 <?php

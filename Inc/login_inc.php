@@ -22,6 +22,7 @@ if (isset($_POST['login'])){
                 $_SESSION["id"] = $row['id'];
                 $_SESSION["Email"] = $row['Email'];
                 $_SESSION["PWD"] = $row['PWD'];
+                $_SESSION["role"] = $row['role'];
                 header("location: ../index.php");
             }
 
@@ -30,7 +31,7 @@ if (isset($_POST['login'])){
     }
 
 } else {
-    header("location: ../login.php");
+    header("location: ../login.php" . $conn->error);
 }
 $conn->close();
 

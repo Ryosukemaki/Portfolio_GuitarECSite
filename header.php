@@ -1,6 +1,6 @@
 <?php
     require_once 'dbConnect.php';
-    // session_start();
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
       <div class="container">
-      <a class="navbar-brand" href="index.php"><i class="fas fa-guitar"></i><h5>GUITAR STORE</h5></a>
+      <a class="navbar-brand pb-0" href="index.php"><h5><i class="fas fa-guitar"></i> GUITAR STORE</h5></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,29 +45,51 @@
             <ul class="navbar-nav ml-auto">
               
 <?php
-              if(isset($_SESSION['Email'])){
+              // Admin Page
+              if(isset($_SESSION['Email']) && $_SESSION['role'] == 2){
                     $user = $_SESSION['Email'];
 ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="">USERS</a>
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><?php echo "Welcome $user" ?></a>
+                        <a class="nav-link" href="#"><?php echo "$user" ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="guitarStockPage.php">Stuff Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="guitarUsersPage.php">Users</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="Inc/logout_inc.php">LOG OUT</a>
+                        <a class="nav-link" href="Inc/logout_inc.php">Sign Out</a>
                     </li>
 <?php
+              // Ordinary Costomer Page
+              } else if(isset($_SESSION['Email'])) {
+                $user = $_SESSION['Email'];
+?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><?php echo "$user" ?></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Inc/logout_inc.php">Sign Out</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href=""><i class="fas fa-shopping-cart"></i></a>
+                    </li>
+<?php
+              
               } else {
 ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="guitarStockPage.php">仮stock</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signup.php">SIGN UP</a>
+                        <a class="nav-link" href="signup.php"><i class="fas fa-user-plus"></i> Sign Up</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="login.php">LOGIN</a>
+                        <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href=""><i class="fas fa-shopping-cart"></i></a>

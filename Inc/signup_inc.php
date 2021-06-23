@@ -9,6 +9,7 @@ if (isset($_POST['signup'])){
     $email = $_POST["email"];
     $pwd = $_POST["password"];
     $pwd2 = $_POST["password2"];
+    $role = 1;
     $pwdHashed = password_hash($pwd, PASSWORD_DEFAULT);
 
     $sql = "SELECT * FROM Guitar_users WHERE Email = '$email';";
@@ -21,7 +22,7 @@ if (isset($_POST['signup'])){
     }else if($pwd!=$pwd2){
         header("location: ../signup.php?NotSamePWD=exist");
     } else{
-        $sql = "INSERT INTO Guitar_users (Full_Name, Email, PWD) VALUES ('$name', '$email', '$pwdHashed')";
+        $sql = "INSERT INTO Guitar_users (Full_Name, Email, PWD, role) VALUES ('$name', '$email', '$pwdHashed', '$role')";
             if ($conn->query($sql)) {
                 header("location: ../login.php?signup=success");
             } else {
