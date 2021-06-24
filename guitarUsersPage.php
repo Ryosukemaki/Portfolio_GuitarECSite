@@ -12,7 +12,7 @@
         $id = 0;
 ?>
 
-<!-- Function Delete Data -->
+<!-- Fuction: GuitarUser Delete -->
 <?php
         if(isset($_GET['delete'])){
           $id = $_GET['delete'];
@@ -34,7 +34,7 @@
         }
 ?>
 
-<!-- Function Click Edit button -->
+<!-- Function: Click Edit button -->
 <?php
         if(isset($_GET['edit'])){
           $id = $_GET['edit'];
@@ -63,8 +63,8 @@
         $pwd = $_POST['password'];
         $role = $_POST['role'];
         $pwdHashed = password_hash($pwd, PASSWORD_DEFAULT);
-
-//sql to create table
+        
+        //sql to create table
         $sql = "INSERT INTO Guitar_users (Full_Name, Email, PWD, role) VALUE('$fullName', '$email', '$pwdHashed', '$role')";
 
             if($conn->query($sql) === TRUE){

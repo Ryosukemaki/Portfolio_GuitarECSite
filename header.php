@@ -33,13 +33,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="acousticStuff.php">Acoustic</a>
+                <a class="nav-link" href="acousticGuitar.php">Acoustic</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="electricStuff.php">Electric</a>
+                <a class="nav-link" href="electricGuitar.php">Electric</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="accessoriesStuff.php">Accessories</a>
+                <a class="nav-link" href="accessories.php">Accessories</a>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -49,11 +49,8 @@
               if(isset($_SESSION['Email']) && $_SESSION['role'] == 2){
                     $user = $_SESSION['Email'];
 ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
-                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><?php echo "$user" ?></a>
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i><?php echo "  $user" ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="guitarStockPage.php">Stuff Stock</a>
@@ -62,21 +59,18 @@
                         <a class="nav-link" href="guitarUsersPage.php">Users</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="Inc/logout_inc.php">Sign Out</a>
+                        <a class="nav-link" href="Inc/logout_inc.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
                     </li>
 <?php
               // Ordinary Costomer Page
               } else if(isset($_SESSION['Email'])) {
                 $user = $_SESSION['Email'];
 ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i><?php echo "  $user" ?></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><?php echo "$user" ?></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Inc/logout_inc.php">Sign Out</a>
+                        <a class="nav-link" href="Inc/logout_inc.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href=""><i class="fas fa-shopping-cart"></i></a>
