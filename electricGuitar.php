@@ -2,15 +2,15 @@
     include_once "header.php";
 ?>
 
+<!-- Navbar -->
+<div class="jumbotron jumbotron-fluid pt-2">
  <nav aria-label="">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Electric</li>
       </ol>
  </nav>
-
 <!-- Electric Guitar -->
-<div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4 mb-3 text-center">Electric Guitars</h1>
           <div class="row">
@@ -23,7 +23,7 @@
                 while($row = $result->fetch_assoc()){
 ?>
                   <div class="col-md-6 text-center">
-                      <?php echo "<img width='500px' src='GuitarImage/".$row['product_Image']." '>"; ?>
+                      <?php echo "<img width='100%' src='GuitarImage/".$row['product_Image']." '>"; ?>
                       <h5 class="card-title mt-3"><?php echo $row["Product_Name"];?></h5>
                       <p class="card-text"><?php echo $row["Price"];?></p>
                       <button type="button" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">VIEW GUITAR DETAILS</button>

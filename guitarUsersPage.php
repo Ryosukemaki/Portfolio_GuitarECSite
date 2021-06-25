@@ -36,8 +36,8 @@
 
 <!-- Function: Click Edit button -->
 <?php
-        if(isset($_GET['edit'])){
-          $id = $_GET['edit'];
+        if(isset($_GET['id'])){
+          $id = $_GET['id'];
 
           $sql ="SELECT * FROM Guitar_users WHERE id = $id;";
           $result = $conn->query($sql);

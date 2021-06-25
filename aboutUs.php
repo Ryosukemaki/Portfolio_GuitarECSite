@@ -9,7 +9,7 @@
  </nav>
 
  <div class="container">
-    <h1 class="display-3 mb-5">About Taylor Guitars</h1>
+    <h1 class="display-3 mb-5">About Guitar Store</h1>
     <form>
         <div class="form-group row mb-2">
           <div class="container text-center mb-4">

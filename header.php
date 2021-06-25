@@ -15,10 +15,9 @@
   <!-- CSS Part -->
   <style>
     .carousel-caption{
-    width: 40%;
-    right: 10%;
-    bottom: 70%;
-
+    width: 60%;
+    left: 55%;
+    bottom: 55%;
     }
   </style>
 
@@ -40,6 +39,9 @@
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="accessories.php">Accessories</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="productPage.php">Tentative ProductPage</a>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto">

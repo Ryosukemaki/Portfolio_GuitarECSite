@@ -9,17 +9,21 @@
       <div class="carousel-inner position-relative">
           <div class="carousel-item active ">
             <img src="GuitarImage/indexPhoto3.jpg" class="d-block" style="width:100%;" alt="...">
+                <div class="container">
                   <div class="carousel-caption text-left d-none d-md-block position-absolute">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h2 class="display-4 "style="width:60%;">Welcome Online Guitar Store!</h2>
+                    <p style="width:60%;">We have a bunch of the Taylor Guitars acoustic line series. Each series features a unique combination of tonewoods and aesthetic details, which add up to a diverse mix of musical personalities.All Taylor models come with a Taylor hardshell case or protective gig bag.</p>
                   </div>
+                </div>
           </div>
           <div class="carousel-item">
             <img src="GuitarImage/indexPhoto2.jpg" class="d-block" style="width: 100%;" alt="...">
+                <div class="container">
                   <div class="carousel-caption text-left d-none d-md-block position-absolute">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h2 class="display-4 "style="width:60%;">Welcome Online Guitar Store!</h2>
+                    <p style="width:60%;">We have a bunch of the Taylor Guitars acoustic line series. Each series features a unique combination of tonewoods and aesthetic details, which add up to a diverse mix of musical personalities.All Taylor models come with a Taylor hardshell case or protective gig bag.</p>
                   </div>
+                </div>
           </div>
       </div>
 
@@ -41,12 +45,12 @@
             <div class="col-md-6 text-center">
                 <h3>Acoustic Guitar</h3>
                 <img src="GuitarImage/FYNGuitar4.jpg" class="rounded " alt="..." style="width:100%;">
-                <button type="button" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">Browse</button>
+                <a class="btn btn-outline-secondary mt-3 col-8 mx-auto" href="acousticGuitar.php">Browse</a>
             </div>
             <div class="col-md-6 text-center">
               <h3>Electric Guitar</h3>
               <img src="GuitarImage/FYNGuitar3.jpg" class="rounded" alt="..." style="width:100%;">
-              <button type="button" class="btn btn-outline-secondary mt-3 col-8 mx-auto">Browse</button>
+              <a class="btn btn-outline-secondary mt-3 col-8 mx-auto" href="electricGuitar.php">Browse</a>
             </div>
           </div>
       </div>
