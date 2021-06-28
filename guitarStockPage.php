@@ -96,20 +96,27 @@
 <?php
         if(isset($_GET['stockAdd'])){
           $id = $_GET['stockAdd'];
-
           $sql ="SELECT * FROM products WHERE id = $id;";
           $result = $conn->query($sql);
 
           if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_assoc($result);
-            $Stock = $row['Stock'];
-            $add = '<input type="text" name="add" class="form-control" >';
-            $number = $_POST['add'];
-            
+            $Stock = $row['Stock'];         
           } else{
             echo "0 result";
           }
         }
+        
+        if (isset($_POST['addSubmit'])){
+          $addStock = $_POST['add'];
+          $add = $addStock + $Stock;
+          $sql = "UPDATE products SET Stock = '$add' WHERE id = $id;";
+            if ($conn->query($sql)){
+              echo "succesful updating record";
+            } else{
+              echo "o result";
+            }
+        }       
 ?>
 
 
@@ -194,7 +201,18 @@
                    <a href="guitarStockPage.php?edit=<?php echo $row["id"]; ?>" class="btn btn-info">EDIT</a>
                    <a href="guitarStockPage.php?delete=<?php echo $row["id"]; ?>" class="btn btn-danger">DELETE</a>     
                    <a href="guitarStockPage.php?stockAdd=<?php echo $row["id"]; ?>" class="btn btn-primary">Stock Add</a>
-                   <?php echo "$addText"; ?>
+                   <?php
+                    if(isset($_GET['stockAdd'])){
+                      ?>
+                      <form action="" method="POST">
+                        <input type="text" name="add" class="form-control" >
+                        <button type="submit" name="addSubmit" class="btn btn-primary my-3">Add</button>
+                      </form>
+                    <?php
+                    } else{
+
+                    }
+                   ?>
                    </td>
                 </tr>
 <?php

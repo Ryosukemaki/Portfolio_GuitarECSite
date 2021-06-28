@@ -28,36 +28,22 @@
                       <p class="card-text"><?php echo $row["Price"];?></p>
 <?php
 // Warning Sign  
-              if($row["Stock"] == 3){
-?>
-                    <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5">3 in stock</a>
-<?php
-              } else if($row["Stock"] == 2) {
-?>
-                    <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5">2 in stock</a>
-<?php
-              } else if($row["Stock"] == 1){
-?>
-                <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5">1 in stock</a>
-<?php
-              } else if($row["Stock"] == 0){
-?>
-                <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5">Out Of Stock</a>
-<?php
-              } else{
-              }
-?>
-                      <a href="productPage.php?id=<?php echo $row["id"]; ?>" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">VIEW DETAILS</a>
+                   if($row["Stock"] <= 3 && $row["Stock"] >= 1){?>
+                      <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5 product_warning"><?php echo $row["Stock"];?> in stock</a>
+<?php              
+                   } else if($row["Stock"] == 0){?>
+                      <a href="" class="btn btn-danger mt-3 col-8 mx-auto mb-5 product_warning">Out Of stock</a>
+<?php             
+                   }?>
+                       <a href="productPage.php?id=<?php echo $row["id"]; ?>" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">VIEW DETAILS</a>
                   </div>
 <?php
-                  }
-?>
-          </div>
+                  }?>
+       </div>
 <?php
                   } else{
                     echo "0 results";
-              }
-?>
+              }?>
 
           <hr class="mt-5">
           <h5 class="text-uppercase text-center">Page 1/1</h5>

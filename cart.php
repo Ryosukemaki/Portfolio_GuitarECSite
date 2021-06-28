@@ -12,29 +12,44 @@
     <h1 class="display-3 mb-3">Your Cart</h1>
     <hr class="mt-5">
     <form action="Inc/login_inc.php" method="POST">
-        <div class="form-group row mb-5">
-          <label for="email" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="email" name="email"placeholder="Email">
-            </div>
-        </div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col"></th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+<?php
+              $sql = "SELECT * FROM products WHERE id = 6;";
+              $result = $conn->query($sql);
 
-        <div class="form-group row">
-          <label for="password" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-            </div>
-            <div class="form-group row mt-3">
-              <a href="">Forgotten Password? ></a>
-            </div>
-        </div>
+              if($result){
+                while($row = $result->fetch_assoc()){
+?>
+                <tr>
+                   <td><?php echo "<img width='400px' src='GuitarImage/".$row['Product_Image']." '>"; ?></td>
+                   <td><?php echo $row["Product_Name"];?></td>
+                   <td><?php echo $row["Price"];?></td>
+                   <td></td>
+                   <td></td>
+<?php
+                 }//While close ?>
+          </tbody>
+        </table>
+<?php
+                } else{
+                    echo "0 results";
+                }?>
 
-        <div class="form-group row">
-            <div class="col-sm-12 text-center">
-            <button type="submit" class="btn btn-primary w-50" name="login">Login</button>
-            </div>
-            <div class="col-sm-12 text-right mt-3">
-              <a type="submit" class="btn btn-outline-secondary" href="signup.php">Register for free now ></a>
+            <hr class="mt-5">
+        <div class="form-group row text-right">
+            <div class="col-sm-12 text-right">
+                <a type="submit" class="btn btn-success w-25" href="index.php">Continue Shopping</a>
+                <button type="submit" class="btn btn-danger w-25" name="login">Check Out</button>
             </div>
         </div>
 

@@ -30,44 +30,29 @@
               $result = $conn->query($sql);
               
               if($result){
-                while($row = $result->fetch_assoc()){
-?>
-                  <div class="col-md-6 text-center">
+                while($row = $result->fetch_assoc()){?>
+                  <div class="col-md-6 text-center product">
                       <?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?>
                       <h5 class="card-title mt-3"><?php echo $row["Product_Name"];?></h5>
                       <p class="card-text"><?php echo $row["Price"];?></p>
 <?php
 // Warning Sign  
-              if($row["Stock"] == 3){
-?>
-                    <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5">3 in stock</a>
-<?php
-              } else if($row["Stock"] == 2) {
-?>
-                    <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5">2 in stock</a>
-<?php
-              } else if($row["Stock"] == 1){
-?>
-                <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5">1 in stock</a>
-<?php
-              } else if($row["Stock"] == 0){
-?>
-                <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5">Out Of Stock</a>
-<?php
-              } else{
-              }
-?>
-                      <a href="productPage.php?id=<?php echo $row["id"]; ?>" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">VIEW GUITAR DETAILS</a>
+                   if($row["Stock"] <= 3 && $row["Stock"] >= 1){?>
+                      <a href="" class="btn btn-warning mt-3 col-8 mx-auto mb-5 product_warning"><?php echo $row["Stock"];?> in stock</a>
+<?php              
+                   } else if($row["Stock"] == 0){?>
+                      <a href="" class="btn btn-danger mt-3 col-8 mx-auto mb-5 product_warning">Out Of stock</a>
+<?php             
+                   }?>
+                       <a href="productPage.php?id=<?php echo $row["id"]; ?>" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">VIEW GUITAR DETAILS</a>
                   </div>
 <?php
-                  }
-?>
+                  }?>
        </div>
 <?php
                   } else{
                     echo "0 results";
-              }
-?>
+              }?>
 
           <hr class="mt-5">
           <div class="container text-right mt-3 mx-auto">

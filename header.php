@@ -19,6 +19,16 @@
     left: 55%;
     bottom: 55%;
     }
+
+    .product{
+      position: relative;
+    }
+
+    .product_warning{
+      position: absolute;
+      top: 20%;
+      opacity: 0.8;
+    }
   </style>
 
 </head>
