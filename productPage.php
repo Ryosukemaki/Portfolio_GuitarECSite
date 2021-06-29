@@ -23,11 +23,10 @@
 ?>
 <!-- Product Name -->
       <div class="container">
-                <h1 class="display-4 mb-3 text-right"><?php echo $row["Product_Name"];?></h1>
-                <h3 class="text-right">Price <?php echo $row["Price"];?></h3>
-           
-<!-- Product Image -->
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="row">
+            <div class="container col-md-8 mt-5">
+            <!-- Product Image -->
+               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                       <ol class="carousel-indicators">
                           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -46,53 +45,66 @@
                if($result){
                     while($row = mysqli_fetch_assoc($result)){
 ?>
-                  <div class="carousel-item">
-                     <?php echo "<img width='100%' src='GuitarImage/".$row['AnotherP_Image']." '>";?>
-                  </div>
+                      <div class="carousel-item">
+                        <?php echo "<img width='100%' src='GuitarImage/".$row['AnotherP_Image']." '>";?>
+                      </div>
 <?php
                           } //while close
                 } else{
                      echo "0 results";
-                }
-?>
-            
+                }?>
+                
                   </div>
-                       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                       </a>
-                       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                       </a>
-                </div>
-<!-- Add to cart or buy it now  -->
-                <div class="container mt-3 text-right">
-                    <button type="submit" class="btn btn-danger w-25" name="AddToCart">Add To Cart</button>
-                </div>
-                <div class="container mt-3 text-right">
-                    <button type="submit" class="btn btn-warning w-25" name="BuyIt">Buy It Now</button>
-                </div>
-      </div>
-<!-- Product discribe -->
+                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+              </div>
+            </div>
+
+<!-- Display product detail -->
+            <div class="container col-md-4 mt-5">
 <?php
-          $sql = "SELECT * FROM products WHERE id = $id; ";
-              $result = $conn->query($sql);
-                        
-                if($result){
-                  while($row = $result->fetch_assoc()){
-          ?>
-                          <hr class="mt-5">
-                          <div class="container">
-                              <h1 class="display-4 mb-3 text-left"><?php echo $row["Product_Name"];?></h1>
-                              <p class="text-left"><?php echo $row["Descrip"];?></p>
-                          </div>
-<?php
-                        } //while close
-                  } else{
-                          echo "0 results";
-                  }
+                $sql = "SELECT * FROM products WHERE id = $id; ";
+                  $result = $conn->query($sql);
+                            
+                    if($result){
+                      while($row = $result->fetch_assoc()){
 ?>
+
+
+                        <h4 class="display-4 mb-3"><?php echo $row["Product_Name"];?></h4>
+                        <h5 class="">Price: <?php echo $row["Price"];?></h5>
+                        <p class=""><h5>Description: </h5><?php echo $row["Descrip"];?></p>
+
+                        <form action="Inc/addCart_inc.php" method="POST">
+                            <div class="form-group col-4 "><h5>Quantity:</h5>
+                              <input type="number" class="form-control" value="1">
+                            </div>
+                            <div class="container mt-3 text-right">
+                                <button type="submit" class="btn btn-danger w-25" name="AddToCart">Add To Cart</button>
+                                <!-- <a href="../addCart_inc.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger col-12" name="AddToCart">Add To Cart</a> -->
+                                <button type="submit" class="btn btn-warning w-25" name="BuyIt">Buy It Now</button>
+                                <!-- <a href="cart.php?id=<?php echo $row["id"]; ?>" class="btn btn-warning col-12 mt-2" name="BuyIt">Buy It Now</a> -->
+                            </div>
+                        </form>
+      </div>
+<?php
+                      } //while close
+                    } else{
+                        echo "0 results";
+                    }
+?>
+            </div>
+          </div>
+
+          
+                
+
 <?php
         } //while close
         } else{

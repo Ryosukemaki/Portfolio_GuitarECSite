@@ -2,24 +2,6 @@
     include_once "header.php";
 ?>
 
-<!-- Display another images form Another database -->
-<?php
-  if(isset($_GET['id'])){
-    $id = $_GET['id'];
-           $sql = "SELECT * FROM Another_Product_Images WHERE Product_id = 6; ";
-           $result = $conn->query($sql);
-
-               if($result){
-                    while($row = mysqli_fetch_assoc($result)){
-                     $anotherPImage = "<img width='100%' src='GuitarImage/".$row['AnotherP_Image']." '>";
-                          } //while close
-                } else{
-                     echo "0 results";
-                }
-              }
-?>
-
-
 <!-- Navbar -->
 <div class="jumbotron jumbotron-fluid pt-2">
  <nav aria-label="">
@@ -53,13 +35,27 @@
                       </ol>
                   <div class="carousel-inner">
                       <div class="carousel-item active">
+                        <?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?>
+                      </div>
+    
+<!-- Display another images form Another database -->
 <?php
-                           echo "<img width='100%' src='GuitarImage/".$row['product_Image']." '>"; 
+           $sql = "SELECT * FROM Another_Product_Images WHERE Product_id = $id; ";
+           $result = $conn->query($sql);
+
+               if($result){
+                    while($row = mysqli_fetch_assoc($result)){
 ?>
-                      </div>
-                      <div class="carousel-item">
-                          <?php echo "$anotherPImage"; ?>
-                      </div>
+                  <div class="carousel-item">
+                     <?php echo "<img width='100%' src='GuitarImage/".$row['AnotherP_Image']." '>";?>
+                  </div>
+<?php
+                          } //while close
+                } else{
+                     echo "0 results";
+                }
+?>
+            
                   </div>
                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -72,22 +68,35 @@
                 </div>
 <!-- Add to cart or buy it now  -->
                 <div class="container mt-3 text-right">
-                    <button type="submit" class="btn btn-danger w-25" name="AddToCart">Add To Cart</button>
+                    <!-- <button type="submit" class="btn btn-danger w-25" name="AddToCart">Add To Cart</button> -->
+                    <a href="../addCart_inc.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger w-25" name="AddToCart">Add To Cart</a>
                 </div>
                 <div class="container mt-3 text-right">
-                    <button type="submit" class="btn btn-warning w-25" name="BuyIt">Buy It Now</button>
+                    <!-- <button type="submit" class="btn btn-warning w-25" name="BuyIt">Buy It Now</button> -->
+                    <a href="cart.php?id=<?php echo $row["id"]; ?>" class="btn btn-warning w-25" name="BuyIt">Buy It Now</a>
                 </div>
       </div>
 <!-- Product discribe -->
-                <hr class="mt-5">
-                <div class="container">
-                    <h1 class="display-4 mb-3 text-left"><?php echo $row["Product_Name"];?></h1>
-                    <p class="text-left"><?php echo $row["Descrip"];?></p>
-                </div>
 <?php
-        }
+          $sql = "SELECT * FROM products WHERE id = $id; ";
+              $result = $conn->query($sql);
+                        
+                if($result){
+                  while($row = $result->fetch_assoc()){
+          ?>
+                          <hr class="mt-5">
+                          <div class="container">
+                              <h1 class="display-4 mb-3 text-left"><?php echo $row["Product_Name"];?></h1>
+                              <p class="text-left"><?php echo $row["Descrip"];?></p>
+                          </div>
+<?php
+                        } //while close
+                  } else{
+                          echo "0 results";
+                  }
 ?>
 <?php
+        } //while close
         } else{
            echo "0 results";
         }
@@ -117,15 +126,15 @@
         while($row = $result->fetch_assoc()){
 ?>
                     <div class="col-md-6 text-center">
-                          <?php echo "<img width='100%' src='GuitarImage/".$row['product_Image']." '>"; ?>
+                          <?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?>
                           <h5 class="card-title mt-3"><?php echo $row["Product_Name"];?></h5>
                           <p class="card-text"><?php echo $row["Price"];?></p>
                           <a href="productPage.php?id=<?php echo $row["id"]; ?>" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">VIEW GUITAR DETAILS</a>
                     </div>
 
 <?php
-        }
-        } else{
+        } //while close
+      } else{
            echo "0 results";
       }
         
