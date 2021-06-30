@@ -8,12 +8,35 @@
       </ol>
  </nav>
  <div class="container">
-    <h1 class="display-3 mb-3">Sign Up</h1>
-    <form action="Inc/signup_inc.php" method="POST">
+    <h1 class="display-3 my-5">Sign Up</h1>
+    <form action="Inc/signup_inc.php" method="POST" enctype="multipart/form-data">
+
         <div class="form-group row mb-5">
-          <label for="text" class="col-sm-2 col-form-label">FUll Name</label>
+           <label for="text" class="col-sm-2 col-form-label">Profile Picture</label>
+              <div class="custom-file col-sm-10">
+                <input type="file" name="profilePic" class="custom-file-input" id="profilePic" required>
+                <label class="custom-file-label" for="profilePic">Choose Profile Picture...</label>
+              </div>
+        </div>
+
+        <div class="form-group row mb-5">
+          <label for="text" class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="text" name="fullname" placeholder="Full Name">
+              <input type="text" class="form-control" id="text" name="fName" placeholder="Full Name">
+            </div>
+        </div>
+
+        <div class="form-group row mb-5">
+          <label for="text" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="text" name="lName" placeholder="Full Name">
+            </div>
+        </div>
+
+        <div class="form-group row mb-5">
+          <label for="text" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="text" name="address" placeholder="Address">
             </div>
         </div>
 

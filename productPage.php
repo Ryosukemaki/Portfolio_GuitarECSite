@@ -75,8 +75,6 @@
                     if($result){
                       while($row = $result->fetch_assoc()){
 ?>
-
-
                         <h4 class="display-4 mb-3"><?php echo $row["Product_Name"];?></h4>
                         <h5 class="">Price: <?php echo $row["Price"];?></h5>
                         <p class=""><h5>Description: </h5><?php echo $row["Descrip"];?></p>

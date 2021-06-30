@@ -24,8 +24,10 @@
             </thead>
             <tbody>
 <?php
-              $sql = "SELECT * FROM products WHERE id = 6;";
-              $result = $conn->query($sql);
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM products WHERE id = $id;";
+            $result = $conn->query($sql);
 
               if($result){
                 while($row = $result->fetch_assoc()){
@@ -50,7 +52,9 @@
 <?php
                 } else{
                     echo "0 results";
-                }?>
+                }
+            }?>
+                
 
 <!-- Order Total Display -->
  <form>

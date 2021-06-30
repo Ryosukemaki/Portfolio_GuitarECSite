@@ -1,6 +1,5 @@
 <?php
 require_once '../dbConnect.php';
-
 // Login function
 if (isset($_POST['login'])){
     $email = $_POST["email"];
@@ -20,6 +19,10 @@ if (isset($_POST['login'])){
             } else {
                 session_start();
                 $_SESSION["id"] = $row['id'];
+                $_SESSION["Profile_Picture"] = $row['Profile_Picture'];
+                $_SESSION["First_Name"] = $row['First_Name'];
+                $_SESSION["Last_Name"] = $row['Last_Name'];
+                $_SESSION["Address"] = $row['Address'];
                 $_SESSION["Email"] = $row['Email'];
                 $_SESSION["PWD"] = $row['PWD'];
                 $_SESSION["User_Type"] = $row['User_Type'];

@@ -1,10 +1,11 @@
 <?php
 require_once '../dbConnect.php';
+session_start();
 ?>
 
-<!-- Sign up function -->
+<!-- Function: When you clicked "Add To Cart" and if you were logged or not -->
 <?php
-if (isset($_POST["AddToCart"]) && isset($_SESSION["id"])){
+if (isset($_POST["AddToCart"]) && isset($_SESSION["Email"])){
 
         $id = $_POST['id'];
         $sql = "SELECT * FROM products WHERE id = $id; ";

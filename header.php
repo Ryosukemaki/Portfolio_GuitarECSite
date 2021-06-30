@@ -59,7 +59,7 @@
                     $user = $_SESSION['Email'];
 ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i><?php echo "  $user" ?></a>
+                        <a class="nav-link" href="#"><?php echo "<img width='25px' height='25px' style='border-radius: 50%;' src='ProfilePicture/".$_SESSION['Profile_Picture']." '>"; ?><?php echo "  $user" ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="guitarStockPage.php">Stuff Stock</a>
@@ -79,7 +79,7 @@
                 $user = $_SESSION['Email'];
 ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i><?php echo "  $user" ?></a>
+                        <a class="nav-link" href="#"><?php echo "<img width='30px' height='30px' style='border-radius: 50%;' src='ProfilePicture/".$_SESSION['Profile_Picture']." '>"; ?><?php echo "  $user" ?></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="Inc/logout_inc.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
