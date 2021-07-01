@@ -34,7 +34,7 @@
                   <div class="col-md-6 text-center product">
                       <?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?>
                       <h5 class="card-title mt-3"><?php echo $row["Product_Name"];?></h5>
-                      <p class="card-text"><?php echo $row["Price"];?></p>
+                      <p class="card-text">$<?php echo $row["Price"];?></p>
 <?php
 // Warning Sign  
                    if($row["Stock"] <= 3 && $row["Stock"] >= 1){?>

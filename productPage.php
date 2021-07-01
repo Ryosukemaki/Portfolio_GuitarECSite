@@ -76,18 +76,22 @@
                       while($row = $result->fetch_assoc()){
 ?>
                         <h4 class="display-4 mb-3"><?php echo $row["Product_Name"];?></h4>
-                        <h5 class="">Price: <?php echo $row["Price"];?></h5>
+                        <h5 class="">Price: $<?php echo $row["Price"];?></h5>
                         <p class=""><h5>Description: </h5><?php echo $row["Descrip"];?></p>
 
-                        <form action="Inc/addCart_inc.php" method="POST">
+                        <form action="cart.php" method="POST">
                             <div class="form-group col-4 "><h5>Quantity:</h5>
-                              <input type="number" class="form-control" value="1">
+                              <input type="number" class="form-control" value="1" name="quantity">
                             </div>
+                            <input type="hidden" value="<?php echo "<img width='400px' src='GuitarImage/".$row['Product_Image']." '>"; ?>" name="hidden_image">   
+                            <input type="hidden" value="<?php echo $row["Product_Name"];?>" name="hidden_name">   
+                            <input type="hidden" value="<?php echo $row["Price"];?>" name="hidden_price">   
+                            <input type="hidden" value="<?php echo $row["id"];?>" name="hidden_id">   
+
                             <div class="container mt-3 text-right">
                                 <button type="submit" class="btn btn-danger w-25" name="AddToCart">Add To Cart</button>
-                                <!-- <a href="../addCart_inc.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger col-12" name="AddToCart">Add To Cart</a> -->
                                 <button type="submit" class="btn btn-warning w-25" name="BuyIt">Buy It Now</button>
-                                <!-- <a href="cart.php?id=<?php echo $row["id"]; ?>" class="btn btn-warning col-12 mt-2" name="BuyIt">Buy It Now</a> -->
+                 
                             </div>
                         </form>
       </div>
@@ -136,7 +140,7 @@
                     <div class="col-md-6 text-center">
                           <?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?>
                           <h5 class="card-title mt-3"><?php echo $row["Product_Name"];?></h5>
-                          <p class="card-text"><?php echo $row["Price"];?></p>
+                          <p class="card-text">$<?php echo $row["Price"];?></p>
                           <a href="productPage.php?id=<?php echo $row["id"]; ?>" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">VIEW GUITAR DETAILS</a>
                     </div>
 

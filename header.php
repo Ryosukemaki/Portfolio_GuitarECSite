@@ -33,34 +33,31 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top p-3">
       <div class="container">
       <a class="navbar-brand pb-0" href="index.php"><h5><i class="fas fa-guitar"></i> GUITAR STORE</h5></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="acousticGuitar.php">Acoustic</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="electricGuitar.php">Electric</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="accessories.php">Accessories</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="acousticGuitar.php">Acoustic</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="electricGuitar.php">Electric</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="accessories.php">Accessories</a>
+                  </li>
+                </ul>
+                <ul class="navbar-nav">
               
 <?php
-              // Admin Page
-              if(isset($_SESSION['Email']) && $_SESSION['User_Type'] == 2){
+              // Super Admin Page
+              if(isset($_SESSION['Email']) && $_SESSION['User_Type'] == 3){
                     $user = $_SESSION['Email'];
 ?>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"><?php echo "<img width='25px' height='25px' style='border-radius: 50%;' src='ProfilePicture/".$_SESSION['Profile_Picture']." '>"; ?><?php echo "  $user" ?></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="guitarStockPage.php">Stuff Stock</a>
                     </li>
@@ -70,23 +67,46 @@
                     <li class="nav-item">
                         <a class="nav-link" href="guitarUsersPage.php">Users</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Inc/logout_inc.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
-                    </li>
+                 </ul>
+                 <ul class="navbar-nav">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="Inc/logout_inc.php" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Log out"><?php echo "<img width='50px' height='50px' style='border-radius: 50%;' src='ProfilePicture/".$_SESSION['Profile_Picture']." '>"; ?><?php echo "  $user" ?></a>
+                      </li>
+                 </ul>
 <?php
-              // Ordinary Costomer Page
-              } else if(isset($_SESSION['Email'])) {
+              // Web Admin Page
+              } else if(isset($_SESSION['Email']) && $_SESSION['User_Type'] == 2) {
+                $user = $_SESSION['Email'];
+?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="guitarStockPage.php">Stuff Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="anotherPImages.php">AnotherP_Image</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="guitarUsersPage.php">Users</a>
+                    </li>
+                 </ul>
+                 <ul class="navbar-nav">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="Inc/logout_inc.php" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Log out"><?php echo "<img width='50px' height='50px' style='border-radius: 50%;' src='ProfilePicture/".$_SESSION['Profile_Picture']." '>"; ?><?php echo "  $user" ?></a>
+                      </li>
+                 </ul>
+<?php
+              // Ordinary Customer Page
+              } else if(isset($_SESSION['Email']) && $_SESSION['User_Type'] == 1) {
                 $user = $_SESSION['Email'];
 ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><?php echo "<img width='30px' height='30px' style='border-radius: 50%;' src='ProfilePicture/".$_SESSION['Profile_Picture']." '>"; ?><?php echo "  $user" ?></a>
+                        <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart mx-2"></i></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Inc/logout_inc.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href=""><i class="fas fa-shopping-cart"></i></a>
-                    </li>
+                 </ul>
+                 <ul class="navbar-nav">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="Inc/logout_inc.php" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Log out"><?php echo "<img width='50px' height='50px' style='border-radius: 50%;' src='ProfilePicture/".$_SESSION['Profile_Picture']." '>"; ?><?php echo "  $user" ?></a>
+                      </li>
+                 </ul>
 <?php
               
               } else {

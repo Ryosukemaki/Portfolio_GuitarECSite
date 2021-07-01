@@ -15,7 +15,7 @@ if (isset($_POST['login'])){
         $checkPwd = password_verify($pwd, $pwdhashed);
 
             if ($checkPwd === false){
-                header("location: ../login.php?login=fail&username=$email+$pwdhashed");
+                header("location: ../login.php?login=fail&username=$email+$pwd");
             } else {
                 session_start();
                 $_SESSION["id"] = $row['id'];
@@ -30,7 +30,7 @@ if (isset($_POST['login'])){
             }
 
         } else {
-        header("location: ../login.php?login=fail");
+        header("location: ../login.php?login=fail" . $conn->error);
     }
 
 } else {

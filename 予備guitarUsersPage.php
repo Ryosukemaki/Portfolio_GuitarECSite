@@ -165,7 +165,7 @@
                    <td><?php echo $row["Email"];?></td>
                    <td><?php echo $row["User_Type"];?></td>
                    <td>
-                   <a href="guitarUsersPage.php?edit=<?php echo $row["id"]; ?>" class="btn btn-info" data-toggle="modal" data-target="#edit">EDIT</a>
+                   <a href="guitarUsersPage.php?edit=<?php echo $row["id"]; ?>" class="btn btn-info">EDIT</a>
                    <a href="guitarUsersPage.php?delete=<?php echo $row["id"]; ?>" class="btn btn-danger">DELETE</a>     
                    </td>
                 </tr>
@@ -181,96 +181,53 @@
                 }
 ?>
 
-
-
-<!-- Button trigger modal -->
-<div class="container mt-3 text-right"> 
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#adduser">
-    <i class="fas fa-user-plus"></i> Add User
-    </button>
-</div>
-
 <!-- Display Insert and Edit Form -->
-<form action="" method="POST" enctype="multipart/form-data">
+          <div class="row justify-content-center">
+              <form action="" method="POST" enctype="multipart/form-data">
 <?php
-      if($update == true){
+                if($update == true){
 ?>
-         <div class="modal fade" id="edit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Edit User</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </div>
-                <div class="modal-body">
-                    <div class="row justify-content-center">
-
-                            <input type="hidden" name="id" value  ="<?php echo $id; ?>">
-                            Profile Picture
-                                      <div class="custom-file mb-3">
-                                          <input type="file" name="profilePic" class="custom-file-input" id="profilePic" required>
-                                          <label class="custom-file-label" for="profilePic">Choose product image...</label>
-                                      </div>
-                            First Name <input type="text" name="fName" class="form-control" value="<?php echo $fName; ?>" >
-                            Last Name <input type="text" name="lName" class="form-control" value="<?php echo $lName; ?>" >
-                            Address <input type="text" name="address" class="form-control" value="<?php echo $address; ?>">
-                            Email <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" >
-                            Password <input type="password" name="password" class="form-control" value="<?php echo $pwd; ?>" >
-                            User Type<select class="form-control" name="userType" value="<?php echo $userType; ?>">
-                                  <option value = 3>Super Admin</option>
-                                  <option value = 2>Web Admin</option>
-                                  <option value = 1>Customer</option>
-                                </select>
-                            <button type="submit" name="update" class="btn btn-primary my-3">UPDATE</button>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-         </div>
+                  <input type="hidden" name="id" value  ="<?php echo $id; ?>">
+                  Profile Picture
+                             <div class="custom-file mb-3">
+                                <input type="file" name="profilePic" class="custom-file-input" id="profilePic" required>
+                                <label class="custom-file-label" for="profilePic">Choose product image...</label>
+                             </div>
+                  First Name <input type="text" name="fName" class="form-control" value="<?php echo $fName; ?>" >
+                  Last Name <input type="text" name="lName" class="form-control" value="<?php echo $lName; ?>" >
+                  Address <input type="text" name="address" class="form-control" value="<?php echo $address; ?>">
+                  Email <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" >
+                  Password <input type="password" name="password" class="form-control" value="<?php echo $pwd; ?>" >
+                  User Type<select class="form-control" name="userType" value="<?php echo $userType; ?>">
+                        <option value = 3>Super Admin</option>
+                        <option value = 2>Web Admin</option>
+                        <option value = 1>Customer</option>
+                      </select>
+                  <button type="submit" name="update" class="btn btn-primary my-3">UPDATE</button>
 <?php
-      } else{
+                } else{
 ?>
-         <div class="modal fade" id="adduser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="adduser" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Add User</h5>
-                </div>
-                <div class="modal-body">
-                    <div class="row justify-content col-10">
-                            <input type="hidden" name="id" value  ="<?php echo $id; ?>">
-                            Profile Picture
-                                      <div class="custom-file mb-3">
-                                          <input type="file" name="profilePic" class="custom-file-input" id="profilePic" required>
-                                          <label class="custom-file-label" for="profilePic">Choose product image...</label>
-                                      </div>
-                            First Name <input type="text" name="fName" class="form-control" value="<?php echo $fName; ?>" >
-                            Last Name <input type="text" name="lName" class="form-control" value="<?php echo $lName; ?>" >
-                            Address <input type="text" name="address" class="form-control" value="<?php echo $address; ?>">
-                            Email <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" >
-                            Password <input type="password" name="password" class="form-control" value="<?php echo $pwd; ?>" >
-                            User Type<select class="form-control" name="userType" value="<?php echo $userType; ?>">
-                                  <option value = 3>Super Admin</option>
-                                  <option value = 2>Web Admin</option>
-                                  <option value = 1>Customer</option>
-                                </select>
-                            <button type="submit" name="save" class="btn btn-primary my-3">SAVE</button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-         </div>
+                  Profile Picture
+                             <div class="custom-file mb-3">
+                                <input type="file" name="profilePic" class="custom-file-input" id="profilePic" required>
+                                <label class="custom-file-label" for="profilePic">Choose product image...</label>
+                             </div>
+                  First Name <input type="text" name="fName" class="form-control" >
+                  Last Name <input type="text" name="lName" class="form-control" >
+                  Address <input type="text" name="address" class="form-control" >
+                  Email <input type="email" name="email" class="form-control" >
+                  Password <input type="password" name="password" class="form-control" >
+                  User Type<select class="form-control" name="userType" value="<?php echo $userType; ?>">
+                        <option value = 3>Super Admin</option>
+                        <option value = 2>Web Admin</option>
+                        <option value = 1>Customer</option>
+                      </select>
+                  <button type="submit" name="save" class="btn btn-primary my-3">SAVE</button>
 <?php
                   }
 ?>
-</form>
+              </form>
+          </div>
 
    
 <?php

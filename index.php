@@ -11,8 +11,8 @@
             <img src="GuitarImage/indexPhoto3.jpg" class="d-block" style="width:100%;" alt="...">
                 <div class="container">
                   <div class="carousel-caption text-left d-none d-md-block position-absolute">
-                    <h2 class="display-4 "style="width:60%; color: #D2691E;">Welcome Online Guitar Store !</h2>
-                    <p style="width:60%;color: #A0522D;">We have a bunch of the Taylor Guitars acoustic line series. Each series features a unique combination of tonewoods and aesthetic details, which add up to a diverse mix of musical personalities.All Taylor models come with a Taylor hardshell case or protective gig bag.</p>
+                    <h2 class="display-4 "style="width:60%; text-shadow: 2px 3px 5px #808080; ">Welcome Online Guitar Store !</h2>
+                    <p style="width:60%; text-shadow: 2px 3px 5px #808080; ">We have a bunch of the Taylor Guitars acoustic line series. Each series features a unique combination of tonewoods and aesthetic details, which add up to a diverse mix of musical personalities.All Taylor models come with a Taylor hardshell case or protective gig bag.</p>
                   </div> 
                 </div>
           </div>
@@ -20,8 +20,8 @@
             <img src="GuitarImage/indexPhoto2.jpg" class="d-block" style="width: 100%;" alt="...">
                 <div class="container">
                   <div class="carousel-caption text-left d-none d-md-block position-absolute">
-                    <h2 class="display-4 "style="width:60%;">Welcome Online Guitar Store !</h2>
-                    <p style="width:60%;">We have a bunch of the Taylor Guitars acoustic line series. Each series features a unique combination of tonewoods and aesthetic details, which add up to a diverse mix of musical personalities.All Taylor models come with a Taylor hardshell case or protective gig bag.</p>
+                    <h2 class="display-4 "style="width:60%; text-shadow: 2px 3px 5px #808080; ">Welcome Online Guitar Store !</h2>
+                    <p style="width:60%; text-shadow: 2px 3px 5px #808080; ">We have a bunch of the Taylor Guitars acoustic line series. Each series features a unique combination of tonewoods and aesthetic details, which add up to a diverse mix of musical personalities.All Taylor models come with a Taylor hardshell case or protective gig bag.</p>
                   </div>
                 </div>
           </div>

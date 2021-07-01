@@ -240,7 +240,7 @@
                     <label class="custom-file-label" for="product">Choose product image...</label>
                   </div>
                   Product Name <input type="text" name="productName" class="form-control" value="<?php echo $ProductName; ?>" >
-                  Price <input type="text" name="price" class="form-control" value="<?php echo $Price; ?>" >
+                  Price <input type="number" name="price" class="form-control" value="<?php echo $Price; ?>" >
                   Stock <input type="text" name="stock" class="form-control" value="<?php echo $Stock; ?>" >
                   Description <input type="text" name="descrip" class="form-control" value="<?php echo $Descrip; ?>" >
                   Product Type<select class="form-control" name="productType">
@@ -258,7 +258,7 @@
                     <label class="custom-file-label" for="product">Choose product image...</label>
                   </div>
                   Product Name <input type="text" name="productName" class="form-control" >
-                  Price <input type="text" name="price" class="form-control" >
+                  Price <input type="number" name="price" class="form-control" >
                   Stock <input type="text" name="stock" class="form-control" >
                   Description <input type="text" name="descrip" class="form-control" >
                   Product Type<select class="form-control" name="productType">
