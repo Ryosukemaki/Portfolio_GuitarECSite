@@ -31,8 +31,8 @@
               if($result){
                 while($row = $result->fetch_assoc()){
 ?>
-                  <div class="col-md-6 text-center">
-                      <?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?>
+                  <div class="col-md-6 text-center product">
+                      <a href="productPage.php?id=<?php echo $row["id"]; ?>"><?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?></a>
                       <h5 class="card-title mt-3"><?php echo $row["Product_Name"];?></h5>
                       <p class="card-text">$<?php echo $row["Price"];?></p>
 <?php

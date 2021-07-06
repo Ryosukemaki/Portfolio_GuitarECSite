@@ -44,12 +44,14 @@
           <div class="row">
             <div class="col-md-6 text-center">
                 <h3>Acoustic Guitar</h3>
-                <img src="GuitarImage/FYNGuitar4.jpg" class="rounded " alt="..." style="width:100%;">
+                <a href="acousticGuitar.php">
+                <figure class="zoomIn"><img src="GuitarImage/FYNGuitar4.jpg" class="rounded" alt="..." style="width:100%;"></figure>
                 <a class="btn btn-outline-secondary mt-3 col-8 mx-auto" href="acousticGuitar.php">Browse</a>
             </div>
             <div class="col-md-6 text-center">
               <h3>Electric Guitar</h3>
-              <img src="GuitarImage/FYNGuitar3.jpg" class="rounded" alt="..." style="width:100%;">
+              <a href="electricGuitar.php">
+              <figure class="zoomIn"><img src="GuitarImage/FYNGuitar3.jpg" class="rounded" alt="..." style="width:100%;"></figure>
               <a class="btn btn-outline-secondary mt-3 col-8 mx-auto" href="electricGuitar.php">Browse</a>
             </div>
           </div>
@@ -68,8 +70,8 @@
       if($result){
         while($row = $result->fetch_assoc()){
 ?>
-                    <div class="col-md-4 text-center">
-                          <?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?>
+                    <div class="col-md-4 text-center product"> 
+                          <a href="productPage.php?id=<?php echo $row["id"]; ?>"><?php echo "<img width='100%' src='GuitarImage/".$row['Product_Image']." '>"; ?></a>
                           <h5 class="card-title mt-3"><?php echo $row["Product_Name"];?></h5>
                           <p class="card-text"><?php echo $row["Price"];?></p>
                           <a href="productPage.php?id=<?php echo $row["id"]; ?>" class="btn btn-outline-secondary mt-3 col-8 mx-auto mb-5">VIEW GUITAR DETAILS</a>
@@ -83,7 +85,38 @@
         
 ?>
                 </div>
+
+<!-- SNS movie or something -->
+<hr class="mt-5">
+<h1 class="display-4 my-3 text-left">Discover the #TaylorGuitars Community</h1>
+  <div class="row">
+      <div class="container col-md-6">
+          <div class="card text-center">
+              <div class="card-header">
+                <div class="j-poster">
+                  <h3>Taylor Guitars Facebok</h3>
+                </div>
+              </div>
+              <div class="card-body">
+              <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Ftaylorguitars%2Fvideos%2F812779786035002%2F&show_text=false&width=476&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+              </div>
+          </div>
+      </div>
+      <div class="container col-md-6">
+          <div class="card text-center">
+              <div class="card-header">
+                <div class="j-poster">
+                  <h3>Taylor Guitars Facebok</h3>
+                </div>
+              </div>
+              <div class="card-body">
+              <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Ftaylorguitars%2Fvideos%2F1673262792884831%2F&show_text=false&width=476&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+              </div>
+          </div>
+      </div>
   </div>
+
+  
 </div>
 
 <?php

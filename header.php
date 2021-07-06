@@ -29,6 +29,26 @@
       top: 20%;
       opacity: 0.8;
     }
+
+    .zoomIn {
+      overflow:hidden; //
+    }
+
+    .zoomIn img {
+    transition: .3s ease-in-out;
+    }
+
+    .zoomIn:hover img {
+    transform: scale(1.3);
+    }
+
+    .product img {
+    transition: .3s ease-in-out;
+    }
+
+    .product:hover img {
+    transform: scale(1.1);
+    }
   </style>
 
 </head>
@@ -84,20 +104,26 @@
                     <li class="nav-item">
                         <a class="nav-link" href="anotherPImages.php">AnotherP_Image</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="guitarUsersPage.php">Users</a>
-                    </li>
                  </ul>
                  <ul class="navbar-nav">
                       <li class="nav-item active">
                           <a class="nav-link" href="Inc/logout_inc.php" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Log out"><?php echo "<img width='50px' height='50px' style='border-radius: 50%;' src='ProfilePicture/".$_SESSION['Profile_Picture']." '>"; ?><?php echo "  $user" ?></a>
                       </li>
                  </ul>
+                
 <?php
               // Ordinary Customer Page
               } else if(isset($_SESSION['Email']) && $_SESSION['User_Type'] == 1) {
                 $user = $_SESSION['Email'];
-?>
+                ?>
+                <?php
+                      if(isset($_SESSION["shopping_cart"])){
+                          foreach ($_SESSION["shopping_cart"] as $key => $values){
+                          $quantity = $values["item_quantity"];
+                          echo $quantity;
+                          }
+                      }
+                ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart mx-2"></i></a>
                     </li>

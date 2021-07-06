@@ -15,6 +15,14 @@
         $id = 0;
 ?>
 
+<script>
+function confirm_test() {
+    var select = confirm("問い合わせますか？n「OK」で送信n「キャンセル」で送信中止");
+    return select;
+}
+</script>
+
+
 <!-- Fuction: GuitarUser Delete -->
 <?php
         if(isset($_GET['delete'])){
@@ -163,10 +171,22 @@
                    <td><?php echo $row["Last_Name"];?></td>
                    <td><?php echo $row["Address"];?></td>
                    <td><?php echo $row["Email"];?></td>
-                   <td><?php echo $row["User_Type"];?></td>
                    <td>
-                   <a href="guitarUsersPage.php?edit=<?php echo $row["id"]; ?>" class="btn btn-info" data-toggle="modal" data-target="#edit">EDIT</a>
-                   <a href="guitarUsersPage.php?delete=<?php echo $row["id"]; ?>" class="btn btn-danger">DELETE</a>     
+<?php
+                   if($row["User_Type"] ==1){
+                     echo "Customer";
+                   } else if($row["User_Type"] ==2){
+                    echo "Web Admin";
+                   } else{
+                    echo "Super Admin";
+                   }
+?>
+                  </td>
+                   <td>
+                   <a href="guitarUsersPage.php?edit=<?php echo $row["id"]; ?>" class="btn btn-info">EDIT</a>
+                   <form method="POST" action="test.php" onsubmit="return confirm_test()">
+                     <a href="guitarUsersPage.php?delete=<?php echo $row["id"]; ?>" class="btn btn-danger">DELETE</a>     
+                   </form>
                    </td>
                 </tr>
 <?php
@@ -190,51 +210,8 @@
     </button>
 </div>
 
-<!-- Display Insert and Edit Form -->
 <form action="" method="POST" enctype="multipart/form-data">
-<?php
-      if($update == true){
-?>
-         <div class="modal fade" id="edit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Edit User</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </div>
-                <div class="modal-body">
-                    <div class="row justify-content-center">
-
-                            <input type="hidden" name="id" value  ="<?php echo $id; ?>">
-                            Profile Picture
-                                      <div class="custom-file mb-3">
-                                          <input type="file" name="profilePic" class="custom-file-input" id="profilePic" required>
-                                          <label class="custom-file-label" for="profilePic">Choose product image...</label>
-                                      </div>
-                            First Name <input type="text" name="fName" class="form-control" value="<?php echo $fName; ?>" >
-                            Last Name <input type="text" name="lName" class="form-control" value="<?php echo $lName; ?>" >
-                            Address <input type="text" name="address" class="form-control" value="<?php echo $address; ?>">
-                            Email <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" >
-                            Password <input type="password" name="password" class="form-control" value="<?php echo $pwd; ?>" >
-                            User Type<select class="form-control" name="userType" value="<?php echo $userType; ?>">
-                                  <option value = 3>Super Admin</option>
-                                  <option value = 2>Web Admin</option>
-                                  <option value = 1>Customer</option>
-                                </select>
-                            <button type="submit" name="update" class="btn btn-primary my-3">UPDATE</button>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-         </div>
-<?php
-      } else{
-?>
-         <div class="modal fade" id="adduser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="adduser" aria-hidden="true">
+        <div class="modal fade" id="adduser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="adduser" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -267,10 +244,38 @@
               </div>
             </div>
          </div>
-<?php
-                  }
-?>
 </form>
+
+<!-- Display Insert and Edit Form -->
+<div class="row justify-content-center">
+              <form action="" method="POST" enctype="multipart/form-data">
+<?php
+                if($update == true){
+?>
+                  <input type="hidden" name="id" value  ="<?php echo $id; ?>">
+                  Profile Picture
+                             <div class="custom-file mb-3">
+                                <input type="file" name="profilePic" class="custom-file-input" id="profilePic" required>
+                                <label class="custom-file-label" for="profilePic">Choose product image...</label>
+                             </div>
+                  First Name <input type="text" name="fName" class="form-control" value="<?php echo $fName; ?>" >
+                  Last Name <input type="text" name="lName" class="form-control" value="<?php echo $lName; ?>" >
+                  Address <input type="text" name="address" class="form-control" value="<?php echo $address; ?>">
+                  Email <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" >
+                  Password <input type="password" name="password" class="form-control" value="<?php echo $pwd; ?>" >
+                  User Type<select class="form-control" name="userType" value="<?php echo $userType; ?>">
+                        <option value = 3>Super Admin</option>
+                        <option value = 2>Web Admin</option>
+                        <option value = 1>Customer</option>
+                      </select>
+                  <button type="submit" name="update" class="btn btn-primary my-3">UPDATE</button>
+<?php
+                } else{
+                  
+                }
+?>
+              </form>
+          </div>
 
    
 <?php

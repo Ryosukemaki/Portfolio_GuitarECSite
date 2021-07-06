@@ -185,7 +185,17 @@
                    <td><?php echo $row["Price"];?></td>
                    <td><?php echo $row["Stock"];?></td>
                    <td><?php echo $row["Descrip"];?></td>
-                   <td><?php echo $row["Product_Type"];?></td>
+                   <td>
+<?php
+                   if($row["Product_Type"] ==1){
+                     echo "Acoustic";
+                   } else if($row["Product_Type"] ==2){
+                    echo "Electric";
+                   } else{
+                    echo "Accessories";
+                   }
+?>
+                  </td>
                    <td>
 <?php
 // Warning Sign  
